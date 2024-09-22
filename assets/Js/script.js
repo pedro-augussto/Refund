@@ -69,7 +69,7 @@ function expenseAdd(newExpense){
         
         //Cria o nome da despesa
         const expenseName = document.createElement("strong");
-        expenseName.textContent = newExpense.expense_name;
+        expenseName.textContent = newExpense.expense;
         
         //Cria o icone de remover
         const removeIcon = document.createElement("img");
@@ -93,6 +93,9 @@ function expenseAdd(newExpense){
 
         //Atualiza os totais
         updateTotals();
+
+        //Limpa o formulario apos adicionar um novo item
+        formClear();
 
     } catch (error) {
         console.log(error);
@@ -164,3 +167,14 @@ expenseList.addEventListener("click", function (event){
 
     updateTotals();
 });
+
+
+//Função para limpar o formulario
+function formClear() {
+    expense.value = "";
+    category.value = "";
+    amount.value = "";
+
+    //Coloca o nome da despesa em foco
+    expense.focus();
+}
